@@ -39,7 +39,8 @@ class TimerTextState extends State<TimerText> {
     accelerometerEvents.listen((AccelerometerEvent event) {
       if (stopwatch.isRunning) {
         setState(() {
-          userInfo.addData('${event.x} ${event.y} ${event.z}');
+          userInfo.addData(event.x, event.y,event.z);
+
         });
       }
     });
@@ -72,7 +73,7 @@ class TimerTextState extends State<TimerText> {
     final TextStyle timerTextStyle =
         const TextStyle(fontSize: 60.0, fontFamily: "Open Sans");
     String formattedTime =
-        TimerTextFormatter.format(stopwatch.elapsedMilliseconds, totalSeconds);
+        TimerTextFormatter.format(stopwatch.elapsedMilliseconds, userInfo.timer);
 
     return new Text(formattedTime, style: timerTextStyle);
   }
@@ -85,9 +86,7 @@ class TimerTextState extends State<TimerText> {
 }
 
 class TimerTextFormatter {
-  static String format(int milliseconds, int totalSeconds) {
-    int hundreds = (milliseconds / 10).truncate();
-    int seconds = (hundreds / 100).truncate();
-    return (totalSeconds - (seconds % 60)).toString().padLeft(2, '0');
+  static String format(int milliseconds, int userInfoTimer) {
+    return (userInfoTimer - (milliseconds~/1000) ).toString().padLeft(2, '0');
   }
 }

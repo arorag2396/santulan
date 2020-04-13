@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:open_file/open_file.dart';
 import 'package:sensors/sensors.dart';
+import 'package:sway_test/ScatterPlot.dart';
 import 'package:sway_test/UserInfo.dart';
 
 import 'TimerText.dart';
@@ -45,6 +46,7 @@ class SensorCollector extends StatelessWidget {
                 totalSeconds: userInfo.timer,
                 timerCompleteCallback: () {
                   stopwatch.stop();
+                  debugPrint('${userInfo.accelerometer.length}');
                   userInfo.save();
                 },
                 userInfo: userInfo,
@@ -66,20 +68,29 @@ class SensorCollector extends StatelessWidget {
                 ],
               ),
               RaisedButton(
-
-                child: Text("Open"),
+                child: Text("Show result"),
                 onPressed: () {
-                  if ( userInfo.fileName.isNotEmpty ) {
-                    OpenFile.open(userInfo.fileName);
-                  } else {
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      content: Text("Timer not completed!"),
-                    ));
-                  }
+                  final snackBar = SnackBar(
+                    content: Text("${userInfo.swayScore}"),
+                  );
+                  Scaffold.of(context).showSnackBar(snackBar);
                 },
               ),
-
-
+              RaisedButton(
+                child: Text("Sway chart"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Scaffold(
+                            appBar: AppBar(
+                              title: Text("Sway chart"),
+                            ),
+                            body: SimpleScatterPlotChart.withUserInfo(
+                                userInfo.rmsData))),
+                  );
+                },
+              ),
             ],
             mainAxisAlignment: MainAxisAlignment.center,
           ),

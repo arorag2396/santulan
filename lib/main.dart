@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sway_test/TimerText.dart';
-import 'package:sway_test/UserForm.dart';
+import 'package:sway_test/MainScreen.dart';
 import 'package:sway_test/UserInfo.dart';
-import 'dart:async';
-
-import 'package:sway_test/sensor_collector.dart';
 
 UserInfo userInfo = UserInfo();
 
@@ -19,11 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(appTitle),
-        ),
-        body:UserForm()
-      ),
+          appBar: AppBar(
+            title: Text(appTitle),
+          ),
+          body: UserForm()),
     );
   }
 }

@@ -13,7 +13,7 @@ import 'SwayData.dart';
 class UserInfo {
   List<String> accelerometer;
   List<SwayData> swayData;
-  int timer = 90;
+  int timer = 45;
   String fileName = "";
   SwayData swayScore;
   List<SwayData> rmsData;

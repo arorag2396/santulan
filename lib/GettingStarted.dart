@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sway_test/UserInfo.dart';
-import 'package:sway_test/helper_widgets/choose_timer_widget.dart';
+import 'package:sway_test/helper_widgets/get_started_widget.dart';
 import 'package:sway_test/helper_widgets/hero_widget.dart';
-import 'package:sway_test/helper_widgets/terms_conditions_widget.dart';
 
-import 'helper_widgets/get_started_widget.dart';
 import 'helper_widgets/logo_with_widget.dart';
 
 UserInfo userInfo = UserInfo();
@@ -18,10 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: LogoWithWidget(
-            "assets/images/logo.png",
-            HeroWidget(
-                '', '', TermsConditionsWidget('https://www.google.com/'))),
+        backgroundColor: Colors.white,
+        body: LogoWithWidget("assets/images/logo.png",HeroWidget('','', GetStartedWidget())),
       ),
     );
   }

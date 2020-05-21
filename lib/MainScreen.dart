@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sway_test/main.dart';
 import 'package:sway_test/SensorCollector.dart';
@@ -10,7 +11,6 @@ class UserForm extends StatefulWidget {
   }
 }
 
-String dropdownValue = '90';
 
 class UserFormState extends State<UserForm> {
   final _formKey = GlobalKey<FormState>();
@@ -26,12 +26,12 @@ class UserFormState extends State<UserForm> {
         children: <Widget>[
           Center(
             child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                style: TextStyle(fontSize: 22),
-                textAlign: TextAlign.center,
-              )
-            ),
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                  style: TextStyle(fontSize: 22),
+                  textAlign: TextAlign.center,
+                )),
           ),
           Center(
             child: Padding(
@@ -50,12 +50,13 @@ class UserFormState extends State<UserForm> {
                   );
                 },
                 child: Padding(
-                    padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 20.0, bottom:20.0),
-                    child: Text('Next',
+                    padding: const EdgeInsets.only(
+                        left: 40.0, right: 40.0, top: 20.0, bottom: 20.0),
+                    child: Text(
+                      'Next',
                       style: TextStyle(fontSize: 32),
                       textAlign: TextAlign.center,
-                    )
-                ),
+                    )),
               ),
             ),
           ),

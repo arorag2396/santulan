@@ -18,10 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: LogoWithWidget(
-            "assets/images/logo.png",
-            HeroWidget(
-                '', '', TermsConditionsWidget('https://www.google.com/'))),
+        body: LogoWithWidget("assets/images/logo.png",ChooseTimerWidget()),
       ),
     );
   }

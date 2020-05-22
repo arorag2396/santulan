@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sway_test/themes/styling_constants.dart';
 
 class LogoWithWidget extends StatelessWidget {
   final String mainLogoImageSrc;
@@ -13,18 +14,21 @@ class LogoWithWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final availableHeight = MediaQuery.of(context).size.height;
+    print(availableHeight);
     return SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: SIDES_PADDING_MAIN_LOGO, right: SIDES_PADDING_MAIN_LOGO, top: TOP_BOTTOM_PADDING_MAIN_LOGO, bottom: TOP_BOTTOM_PADDING_MAIN_LOGO),
-            child: Image(
-              image: AssetImage(mainLogoImageSrc),
-            ),
+          Image(
+            image: AssetImage(mainLogoImageSrc),
+            width: getDesiredScreenValue(availableHeight, 150, 200, 250),
           ),
-          child
+          Expanded(
+            child: child,
+          )
         ],
       ),
     );

@@ -7,51 +7,52 @@ class GetStartedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "Getting Started",
-            style: TextStyle(
-              fontSize: GETTING_STARTED_FONT_SIZE,
+    return Center(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              "Getting Started",
+              style: TextStyle(
+                fontSize: GETTING_STARTED_FONT_SIZE,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(PADDING_BETWEEN_WIDGET),
-            child: gettingStartedButtonWidget(context),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: PADDING_BETWEEN_WIDGET),
+              child: gettingStartedButtonWidget(context),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget gettingStartedButtonWidget(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: 2,
-              ),
-              borderRadius:
-                  BorderRadius.circular(GETTING_STARTED_BUTTON_RADIUS),
-            ),
-            child: FloatingActionButton(
-              backgroundColor: Colors.white,
-              child: const Icon(
-                Icons.arrow_forward,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 2,
           ),
-        ],
+          borderRadius:
+          BorderRadius.circular(GETTING_STARTED_BUTTON_RADIUS),
+        ),
+        child: FloatingActionButton(
+          backgroundColor: Colors.white,
+          child: const Icon(
+            Icons.arrow_forward,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, "/timer");
+          },
+        ),
       ),
     );
   }
 }
+

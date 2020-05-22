@@ -26,13 +26,12 @@ class _TermsConditionsWidget extends State<TermsConditionsWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(
-              left: PADDING_BETWEEN_WIDGET,
-              right: PADDING_BETWEEN_WIDGET,
-              top: PADDING_BETWEEN_WIDGET,
-              bottom: PADDING_BETWEEN_WIDGET),
+          padding: const EdgeInsets.all(
+            PADDING_BETWEEN_WIDGET,
+          ),
           child: termsConditionTextWidget(context),
         ),
         Padding(
@@ -66,7 +65,7 @@ class _TermsConditionsWidget extends State<TermsConditionsWidget> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
-//              fontSize: PARAGRAPH_FONT_SIZE,
+              fontSize: PARAGRAPH_FONT_SIZE,
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () async {

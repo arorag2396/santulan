@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
-import 'package:sway_test/evalute_sway.dart';
-import 'package:sway_test/main.dart';
+import 'package:santulan/evalute_sway.dart';
+import 'package:santulan/main.dart';
 
 import 'SwayData.dart';
 

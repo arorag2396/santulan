@@ -1,5 +1,5 @@
-name: sway_test
-description: Sway Test
+name: santulan
+description: Santulan
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -10,7 +10,7 @@ description: Sway Test
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.2.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:

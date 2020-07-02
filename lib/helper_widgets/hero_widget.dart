@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sway_test/themes/styling_constants.dart';
+import 'package:santulan/themes/styling_constants.dart';
 
 class HeroWidget extends StatelessWidget {
   final String mainLogoImageSrc;

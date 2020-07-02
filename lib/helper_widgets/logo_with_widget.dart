@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sway_test/themes/styling_constants.dart';
+import 'package:santulan/themes/styling_constants.dart';
 
 class LogoWithWidget extends StatelessWidget {
   final String mainLogoImageSrc;
@@ -24,7 +24,7 @@ class LogoWithWidget extends StatelessWidget {
         children: <Widget>[
           Image(
             image: AssetImage(mainLogoImageSrc),
-            width: getDesiredScreenValue(availableHeight, 150, 200, 250),
+            width: getDesiredScreenValue(availableHeight, MIN_SCREEN_RATIO, MID_SCREEN_RATIO, MAX_SCREEN_RATIO),
           ),
           Expanded(
             child: child,

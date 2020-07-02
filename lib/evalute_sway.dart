@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:sway_test/SwayData.dart';
+import 'package:santulan/SwayData.dart';
 
 num sum(num a, num b) {
   return a + b;

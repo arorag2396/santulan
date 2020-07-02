@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sway_test/themes/styling_constants.dart';
+import 'package:santulan/themes/styling_constants.dart';
 
 class GetStartedWidget extends StatelessWidget {
   static const GETTING_STARTED_FONT_SIZE = 30.0;
-  static const GETTING_STARTED_BUTTON_RADIUS = 30.0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,7 @@ class GetStartedWidget extends StatelessWidget {
             width: 2,
           ),
           borderRadius:
-          BorderRadius.circular(GETTING_STARTED_BUTTON_RADIUS),
+          BorderRadius.circular(CIRCULAR_BUTTON_RADIUS),
         ),
         child: FloatingActionButton(
           backgroundColor: Colors.white,
@@ -48,7 +47,7 @@ class GetStartedWidget extends StatelessWidget {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, "/timer");
+            Navigator.pushReplacementNamed(context, "/choose_timer");
           },
         ),
       ),

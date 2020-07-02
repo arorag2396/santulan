@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:sway_test/themes/styling_constants.dart';
+import 'package:santulan/themes/styling_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TermsConditionsWidget extends StatefulWidget {
@@ -111,9 +111,9 @@ class _TermsConditionsWidget extends State<TermsConditionsWidget> {
         children: <Widget>[
           new RaisedButton(
               color: Colors.white,
-              onPressed: () => new Text(
-                    "Next Page",
-                  ),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, "/start");
+              },
               child: Padding(
                 padding: const EdgeInsets.only(
                     left: AGREED_BUTTON_SIDES_PADDING,

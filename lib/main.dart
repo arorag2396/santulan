@@ -1,42 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:sway_test/UserInfo.dart';
-import 'package:sway_test/helper_widgets/choose_timer_widget.dart';
-import 'package:sway_test/helper_widgets/hero_widget.dart';
-import 'package:sway_test/helper_widgets/terms_conditions_widget.dart';
-
+import 'package:flutter/services.dart';
+import 'package:santulan/UserInfo.dart';
+import 'package:santulan/complete_pages/other_pages/getting_started.dart';
+import 'package:santulan/helper_widgets/hero_widget.dart';
+import 'package:santulan/themes/styling_constants.dart';
+import 'complete_pages/other_pages/choose_timer.dart';
+import 'complete_pages/other_pages/terms_and_conditions.dart';
+import 'complete_pages/sway_test/sway_results.dart';
+import 'complete_pages/sway_test/sway_test_settings.dart';
 import 'helper_widgets/get_started_widget.dart';
 import 'helper_widgets/logo_with_widget.dart';
+import 'helper_widgets/terms_conditions_widget.dart';
 
 UserInfo userInfo = UserInfo();
 
 final routes = <String, WidgetBuilder>{
-  '/terms': (BuildContext context) => LogoWithWidget(
-        "assets/images/logo.png",
-        HeroWidget(
-          '',
-          '',
-          TermsConditionsWidget('https://www.google.com/'),
-        ),
-      ),
-  '/start': (BuildContext context) => LogoWithWidget(
-        "assets/images/logo.png",
-        HeroWidget(
-          '',
-          '',
-          GetStartedWidget(),
-        ),
-      ),
-  '/timer': (BuildContext context) => Scaffold(
-    body: LogoWithWidget(
-          "assets/images/logo.png",
-          ChooseTimerWidget(),
-        ),
-  ),
+  '/terms': (BuildContext context) => TermsAndConditions(),
+  '/start': (BuildContext context) => GettingStarted(),
+  '/choose_timer': (BuildContext context) => ChooseTimer(),
+  '/settings': (BuildContext context) => SwayTestSettings(),
+  '/result': (BuildContext context) => SwayResults(),
 };
 
-void main() => runApp(
-      MyApp(),
-    );
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
+}
 
 Stopwatch stopwatch = new Stopwatch();
 
@@ -48,11 +40,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: LogoWithWidget(
-          "assets/images/logo.png",
+          HERO_LOGO_ADDRESS,
           HeroWidget(
             '',
             '',
-            GetStartedWidget(),
+            TermsConditionsWidget('https://www.google.com/'),
           ),
         ),
 //        body: LogoWithWidget("assets/images/logo.png",HeroWidget('','', GetStartedWidget())),

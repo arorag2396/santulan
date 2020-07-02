@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sway_test/UserInfo.dart';
+import 'package:santulan/UserInfo.dart';
 import 'package:sensors/sensors.dart';
 import 'package:flutter/foundation.dart';
 

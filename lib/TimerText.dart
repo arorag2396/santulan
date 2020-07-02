@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sway_test/UserInfo.dart';
+import 'package:santulan/UserInfo.dart';
 import 'package:sensors/sensors.dart';
 import 'package:flutter/foundation.dart';
 
@@ -32,6 +33,7 @@ class TimerTextState extends State<TimerText> {
   final num totalSeconds;
   final timerCompleteCallback;
   final UserInfo userInfo;
+  final allowedTimes = [10, 30, 45, 60, 90];
 
   @override
   void initState() {
@@ -39,8 +41,7 @@ class TimerTextState extends State<TimerText> {
     accelerometerEvents.listen((AccelerometerEvent event) {
       if (stopwatch.isRunning) {
         setState(() {
-          userInfo.addData(event.x, event.y,event.z);
-
+          userInfo.addData(event.x, event.y, event.z);
         });
       }
     });
@@ -70,10 +71,27 @@ class TimerTextState extends State<TimerText> {
 
   @override
   Widget build(BuildContext context) {
+    return CupertinoPicker(
+      onSelectedItemChanged: (int value) {
+        this.userInfo.timer = this.allowedTimes[value];
+      },
+      itemExtent: 60,
+      magnification: 2,
+      children: this
+          .allowedTimes
+          .map(
+            (e) => Text(
+              e.toString(),
+              style: TextStyle(color: Colors.black, fontSize: 48),
+            ),
+          )
+          .toList(),
+    );
+
     final TextStyle timerTextStyle =
         const TextStyle(fontSize: 60.0, fontFamily: "Open Sans");
-    String formattedTime =
-        TimerTextFormatter.format(stopwatch.elapsedMilliseconds, userInfo.timer);
+    String formattedTime = TimerTextFormatter.format(
+        stopwatch.elapsedMilliseconds, userInfo.timer);
 
     return new Text(formattedTime, style: timerTextStyle);
   }
@@ -87,6 +105,6 @@ class TimerTextState extends State<TimerText> {
 
 class TimerTextFormatter {
   static String format(int milliseconds, int userInfoTimer) {
-    return (userInfoTimer - (milliseconds~/1000) ).toString().padLeft(2, '0');
+    return (userInfoTimer - (milliseconds ~/ 1000)).toString().padLeft(2, '0');
   }
 }

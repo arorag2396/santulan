@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:open_file/open_file.dart';
 import 'package:sensors/sensors.dart';
-import 'package:sway_test/ScatterPlot.dart';
-import 'package:sway_test/UserInfo.dart';
+import 'package:santulan/ScatterPlot.dart';
+import 'package:santulan/UserInfo.dart';
 
 import 'TimerText.dart';
 
